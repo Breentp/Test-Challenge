@@ -8,8 +8,15 @@ const getUsers = () => {
 };
 
 // Filters users by specific ID
-const getUser = (id) => {
-  return users.find((user) => user.id === id);
+const getUser = async (id) => {
+  return Promise((resolve, reject) => {
+    const user = users.find((user) => user.id === id)
+  if (user) {
+      resolve(console.log(user));
+    } else {
+      reject(console.error("Id is invalid."));
+    }
+  });
 };
 
 // test
